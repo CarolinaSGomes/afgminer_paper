@@ -1,0 +1,148 @@
+\documentclass{acm_proc_article-sp}
+
+\usepackage[usenames]{color}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{epsfig}
+
+\newif\ifComments
+\Commentstrue
+\newcommand{\REM}[1]{} 
+\ifComments
+\newcommand{\todo}[1]{\noindent\textcolor{red}{Todo: {#1}}}
+\newcommand{\jna}[1]{\noindent\textcolor{blue}{Nelson: {#1}}}
+\newcommand{\carol}[1]{\noindent\textcolor{green}{Carol: {#1}}}
+\newcommand{\js}[1]{\noindent\textcolor{magenta}{Joerg: {#1}}}
+\else
+\newcommand{\todo}[1]{}
+\newcommand{\jna}[1]{}
+\newcommand{\carol}[1]{}
+\newcommand{\js}[1]{}
+\fi
+
+\def\eg{{\it e.g., \/}}
+\def\ie{{\it i.e., \/}}
+\def\etal{{\it et al.\/}}
+\def\viz{{\it viz.,\/ }}
+
+\begin{document}
+
+\title{Heavyweight Pattern Mining in Attributed Flow Graphs} 
+\titlenote{This research is partially funded by a grant from the Natural Science and Engineering Research Council of Canada through a Collaborative Research and Development grant and by the IBM Centre for Advanced Studies}
+\
+\numberofauthors{3} 
+\author{
+\alignauthor
+Carolina Sim\~oes Gomes\\
+       \affaddr{EMC Corporation of Canada}\\
+       \affaddr{6020 104 Street NW}\\
+       \affaddr{Edmonton, AB, Canada}
+% 2nd. author
+\alignauthor
+Jos\'e Nelson Amaral\\
+       \affaddr{Department of Computing Science}\\
+       \affaddr{University of Alberta}\\
+       \affaddr{Edmonton, AB, Canada}
+% 3rd. author
+\alignauthor
+Joerg Sander\\
+       \affaddr{Department of Computing Science}\\
+       \affaddr{University of Alberta}\\
+       \affaddr{Edmonton, AB, Canada}
+\and
+\alignauthor 
+Joran Siu\\
+       \affaddr{IBM Toronto Software Laboratory}\\
+       \affaddr{8200 Warden Ave.}\\
+       \affaddr{Markham, ON, Canada}
+\alignauthor 
+Li Ding\\
+       \affaddr{IBM Toronto Software Laboratory}\\
+       \affaddr{8200 Warden Ave.}\\
+       \affaddr{Markham, ON, Canada}
+% \and  % use '\and' if you need 'another row' of author names
+% 4th. author
+}
+
+\maketitle
+\begin{abstract}
+This paper is concerned with the discovery of patterns in {\em attributed} flow graphs that have sets of attributes associated with their nodes. A connection between nodes is represented as a directed edge. The amount of load that goes through a path between nodes, or the frequency of transmission of such load between nodes, is represented as edge weights. A heavyweight pattern is a sub-set of attributes, found in a dataset of attributed flow graphs, that are connected by edges and have a computed weight higher than an user-defined threshold. This paper introduces a new algorithm, called AFGMiner, that finds heavyweight patterns in a dataset of attributed flow graphs and associates each pattern with its occurrences. The paper also describes two new tools, HEPMiner and SCPMiner. They use AFGMiner and can be utilized by compiler and application developers, respectively, to solve Profile-based Program Analysis modeled as a heavyweight pattern mining problem.
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{H.2.8}{Information Systems}{Database Management}[Database Applications,Data Mining]
+%A category including the fourth, optional field follows...
+\category{I.2.8}{Computing Methodologies}{Artificial Intelligence}[Problem Solving, Control Methods, and Search, Graph and tree search strategies]
+
+
+\terms{Data Mining}
+
+\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
+
+\section{Introduction}
+	\label{sec:intro}
+	\input{text/Introduction.tex}
+
+\section{Problem Definition}
+        \label{sec:ProblemDef}
+        \input{text/ProblemDefinition.tex}
+%\section{The Profiled-Based Program\\ 
+%              Analysis Problem}
+%	\label{sec:ProgramAnalysis}
+%	\input{text/ProgramAnalysis.tex}
+
+\section{The AFGMiner Algorithm}
+	\label{sec:AFGMiner}
+	\input{text/AFGMiner.tex}
+
+\section{Algorithm Improvements}
+	\label{sec:Improvements}
+	\input{text/Improvements.tex}
+        \subsection{A Parallel Implementation of\\ 
+              AFGMiner}
+	\label{sec:pAFGMiner}
+	\input{text/pAFGMiner.tex}
+	
+\section{Case Studies: Using AFGMiner\\
+              for Program Analysis}
+	\label{sec:CaseStudies}
+	\input{text/CaseStudies.tex}
+	\subsection{A Tool for Compiler Developers\\
+	                   and Computer Architects}
+		\label{sec:HEPMiner}
+		\input{text/HEPMiner.tex}
+	\subsection{AFGMiner to the Help of Application\\
+	                   Programmers}
+		\label{sec:SCPMiner}
+		\input{text/SCPMiner.tex}
+		
+\section{Performance Evaluation\\
+              Methodology}
+	\label{sec:Methodology}
+	\input{text/Methodology.tex}
+
+\section{Performance Evaluation}
+	\label{sec:PerformanceEvaluation}
+	\input{text/Evaluation.tex}
+\section{Qualitative Analysis}
+        \label{sec:QualAnalysis}
+        \input{text/Qualitative.tex}
+\section{Related Work}
+	\label{sec:Related}
+	\input{text/Related.tex}
+
+\section*{Conclusion}
+	\label{sec:Conclusion}
+	\input{text/Conclusion.tex}
+
+\section{Acknowledgments}
+This research is partially funded by a grant from the Natural Science and Engineering Research Council of Canada through a Collaborative Research and Development grant and by the IBM Centre for Advanced Studies
+
+\bibliographystyle{abbrv}
+\bibliography{local}  
+%\appendix
+%\section{First Abstract}
+\balancecolumns
+\end{document}

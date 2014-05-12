@@ -1,0 +1,2 @@
+
+Describe {\em how} the experimental evaluation was done, which programs were used and why, which machines were used to collect  the profiles and which machines were used to run the mining. How do we ensure that the results are reproducible? Do we need to repeat them several times, report mean and standard deviation, etc? Which algorithms do we compare against?

@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: AFGMiner.aux
+The style file: abbrv.bst
+Database file #1: local.bib
+Warning--to sort, need author or key in TProf
+Warning--empty booktitle in Bohm
+You've used 21 entries,
+            2118 wiz_defined-function locations,
+            722 strings with 9239 characters,
+and the built_in function-call counts, 9481 in all, are:
+= -- 959
+> -- 410
+< -- 19
++ -- 159
+- -- 136
+* -- 643
+:= -- 1418
+add.period$ -- 69
+call.type$ -- 21
+change.case$ -- 126
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 423
+empty$ -- 761
+format.name$ -- 136
+if$ -- 2147
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 20
+newline$ -- 107
+num.names$ -- 46
+pop$ -- 170
+preamble$ -- 1
+purify$ -- 105
+quote$ -- 0
+skip$ -- 320
+stack$ -- 0
+substring$ -- 611
+swap$ -- 163
+text.length$ -- 19
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 84
+warning$ -- 2
+while$ -- 87
+width$ -- 23
+write$ -- 252
+(There were 2 warnings)

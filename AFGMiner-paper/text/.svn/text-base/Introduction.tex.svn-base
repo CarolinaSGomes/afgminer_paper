@@ -1,0 +1,71 @@
+
+
+Flow graphs are an abstraction used to represent elements (\eg digital data, goods, electric current) that travel through a network of nodes (\eg computers, physical locations, circuit parts). Flow graphs are often used in the modelling of logistics problems. The paths between nodes are represented as directed edges in the flow graph. Weights associated with the edges represent either the size of the load that is transmitted from the source to the destination node, or the frequency of transmission of a token between these nodes. The nodes of a flow graph may have associated weights that can represent, for instance, the capacity of the node, or the cost of storing payload at the node, or the delay of processing a token at that node. If additional data, in the form of attributes and their values, is associated with the nodes, we have attributed flow graphs. An attributed flow graph (AFG) is a single-entry/single-exit graph with a \emph{source node} that has no incoming edges and a \emph{sink node} with no outgoing edges. The flow starts in the source node and is directed to the sink node. All other nodes in the AFG, if they exist, must have at least one incoming and one outgoing edge. An example of an AFG, that will be used as a running example in this paper, is shown in Figure~\ref{fig:AFG}.
+
+\begin{figure}[htp]
+\centering
+\begin{tabular}{cc}
+ %   \includegraphics[scale=0.25]{figures/attributed_flow_graph2.eps}
+  \includegraphics[scale=0.18]{figures/attributed_flow_graph_descpr.pdf} &
+  \includegraphics[scale=0.18]{figures/attributed_flow_graph3.pdf}\\
+  (a) Elements of an AFG & (b) Example
+\end{tabular}
+    \caption{Example of attributed flow graph.}
+    \label{fig:AFG}  
+\end{figure}
+
+The presence of weights associated with edges, nodes and attributes allows AFGs ---either a single AFG or a set of AFGs--- to create a rich description of dynamic applications. An example of the use of an AFG to model logistics, shown in Figure~\ref{fig:Airport}, is a snapshot of the transportation by air of goods between cities. This AFG models the volume of fish, flowers, and fruits processed through the cargo terminals of several airports. Airports are represented as nodes, the type of goods processed at an airport as attributes of each node, the volume of each type of good handled in an airport as attribute weights, the storage capacity at each airport as node weights, and the volume capacity of the flights transporting goods between cities are represented as weighted directed edges. With similar data for multiple transportation companies, an analyst may use a set of AFGs to model a transportation network with each AFG corresponding to a single company.  
+
+\begin{figure}[h!]
+\centering
+%    \includegraphics[scale=0.5]{figures/attributed_flow_graph_airport.eps}
+  \includegraphics[scale=0.3]{figures/attributed_flow_graph_airport3.pdf}
+    \caption{AFG representing transportation of goods between airports.}
+    \label{fig:Airport}  
+\end{figure}
+
+In many real applications, modelled by AFGs, complex structural subgraph patterns may be prevalent. These subgraphs are often unknown and non-trivial to detect, but they may represent important characteristics of the application. Given the richness of the model, the notion of ``prevalence'' or ``support'' of such patterns, as a measure of interestingness or importance to analysts, is often difficult to capture by simply counting the number of occurrences of the pattern in the AFG. Instead, when modelling an application with AFGs the interesting and useful patterns that an analyst wants to detect are also characterized by node attributes and a notion of support that may include node weights, attribute weights as well as edge weights. 
+
+\begin{figure}[h!]
+\centering
+%    \includegraphics[scale=0.5]{figures/pattern_airport.eps}
+   \includegraphics[scale=0.15]{figures/pattern_airport3.pdf}
+    \caption{Pattern in the goods distribution example.}
+    \label{fig:Pattern}  
+\end{figure}
+
+\REM{
+In the illustrative transportation example, an analyst may be interested in transportation patterns that account for high volumes of certain good being transported between subsets of cities. 
+\jna{Should the pattern actually be a node with Rice followed by two nodes with Rice? I think that the pattern does not have the name of the airports. Also, If the pattern is a source node with Rice with two distinct target nodes with rice, this pattern should match the subgraph Hong Kong Vancouver Toronto from Fig. 2, also the subgraph San Francisco, Edmonton, Seattle. To create the pattern that you have in Fig. 3, you would need to introduce the notion of a GAP at this point. Is this what you want?}
+For instance, one such pattern that may be found in the example is depicted in Figure~\ref{fig:Pattern} and shows a sub-graph that reveals that there is a high volume of rice being transported from Hong Kong to both Vancouver and Toronto. The subgraph itself may not be ``frequent'' in the set of AFGs, {\em i.e.} it may not occur in a large number of the AFGs corresponding to different companies, but when considering the attribute values (the volume of the transported goods) in the AFGs in which the pattern does occur, the ``support'' of the pattern may be considered high.
+}
+
+In the logistics example an analyst may wish to discover transportation patterns that account for high volume of goods transported  through airports connect by air links. One such pattern for the example is depicted in Figure~\ref{fig:Pattern} and shows a sub-graph that reveals that there is a high volume of fish. While this pattern appear multiple times in the AFG of  Figure~\ref{fig:Airport}, an occurrence of this pattern that results in significant support for this pattern is the  subgraph formed by Hong Kong, Vancouver, and Toronto. Even if a pattern has few occurrences, it may be relevant if the existing occurrences have high attribute weights or high edge weights.
+
+Clearly, different applications may benefit from using different, application-specific, or even analysis-specific, definitions of a support measure that takes more than the frequency of pattern occurrences into account. Section~\ref{sec:CaseStudies} will discuss in more detail two sophisticated real applications of AFGs in compiler optimization and software profiling. The logistics-based examples in this introduction seek to underscore that AFGs and methods to discover supported patterns in AFGs are broadly applicable. However, such a method that takes the full structural information present in AFGs into account does not exist.
+
+Existing graph-mining algorithms are all severely limited in their applicability to AFGs. None of them is able to find general subgraph patterns in AFGs that take into account multiple node attributes as well as weights in nodes and edges. A number of algorithms proposed in the literature perform sub-graph mining only on undirected and unweighted graphs, with no attributes (\eg~\cite{gSpan}~\cite{Gaston}~\cite{FFSM}~\cite{FSP}~\cite{AGM}). Such algorithms mine datasets of graphs for \emph{frequent sub-graphs}, which are patterns that occur more than a certain number of times in the dataset. An extension to the classic frequent sub-graph mining algorithm gSpan~\cite{gSpan} presents possible methods of calculating the support value of patterns in edge-weighted graphs with undirected edges and with no node attributes~\cite{Jiang}. The only work on mining patterns in AFGs is the method FlowGSP proposed by \emph{Jocksch~\etal}~\cite{FlowGSP}. But FlowGSP focuses on a specific class of AFGs, execution flow graphs (EFGs), and on a specific type of pattern, sequential patterns that occur as sub-paths of EFGs. 
+
+This paper presents AFGMiner, the first algorithm, to the best of our knowledge, to address the problem of mining AFGs for general sub-graph patterns. AFGMiner takes as input a set of AFGs and a support measure $F$ that may be formulated by taking into account the attribute weights, node weights and edge weights of the occurrences of patterns; AFGMiner returns all patterns $P$, called \emph{heavyweight patterns}, whose support $F(P)$ is higher than a threshold. This threshold is user-specified as commonly assumed in pattern-mining approaches.
+The main contributions of the paper are as follows: 
+
+\begin{enumerate}
+\item Definition of the problem of Attributed Flow Graph Mining to find Heavyweight Patterns.
+
+\item Development of different versions of AFGMiner, an algorithm that mines for heavyweight patterns in attributed flow graphs, including a parallel version with a work-distribution heuristic to maintain workload balance between threads running the algorithm.
+
+\item Development of HEPMiner, a tool that automates the analysis of hardware-instrumented profiles. HEPMiner allows compiler developers to mine for heavyweight patterns that represent particular \emph{execution patterns}. Discovered patterns indicate to analysts potential, non-obvious, opportunities for compiler and architecture-design improvements.
+
+\item Development of SCPMiner, a tool that automates the analysis of profiled application source-code. SCPMiner allows application developers to mine for \emph{source-code patterns} and thus improve the performance of large software systems through changes at the source-code level.
+
+\item A detailed performance analysis that compares AFGMiner to FlowGSP and that studies its performance as part of the tools HEPMiner and SCPMiner on standard benchmark data sets for compiler optimization and software profiling, respectively. \bf{???}
+\end{enumerate}
+
+
+The rest of the paper is organized as following: In section \ref{???} we introduce the required fundamental concepts and the problem definition. In section ...
+
+ 
+
+
+
+
