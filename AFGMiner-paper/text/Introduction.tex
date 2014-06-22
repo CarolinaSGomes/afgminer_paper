@@ -5,7 +5,7 @@ Flow graphs are an abstraction used to represent elements (\eg digital data, goo
 \begin{figure}[htp]
 \centering
 \begin{tabular}{cc}
- %   \includegraphics[scale=0.25]{figures/attributed_flow_graph2.eps}
+ %   \includegraphics[scale=0.2]{figures/attributed_flow_graph2.eps}
   \includegraphics[scale=0.18]{figures/attributed_flow_graph_descpr.pdf} &
   \includegraphics[scale=0.18]{figures/attributed_flow_graph3.pdf}\\
   (a) Elements of an AFG & (b) Example
@@ -18,33 +18,29 @@ The presence of weights associated with edges, nodes and attributes allows AFGs 
 
 \begin{figure}[h!]
 \centering
-%    \includegraphics[scale=0.5]{figures/attributed_flow_graph_airport.eps}
-  \includegraphics[scale=0.3]{figures/attributed_flow_graph_airport2.pdf}
+%    \includegraphics[scale=0.3]{figures/attributed_flow_graph_airport.eps}
+  \includegraphics[scale=0.2]{figures/attributed_flow_graph_airport2.pdf}
     \caption{AFG representing transportation of goods between airports.}
     \label{fig:Airport}  
 \end{figure}
 
-In many applications modelled by AFGs, complex structural subgraph patterns may be prevalent. These subgraphs are often unknown and non-trivial to detect, but they may represent important characteristics of the application. Given the richness of the model, the notion of ``prevalence'' or ``support'' of such patterns, as a measure of interestingness or importance to analysts, is often difficult to capture by simply counting the number of occurrences of the pattern in the AFG. Instead, when modelling an application with AFGs the interesting and useful patterns that an analyst wants to detect are also characterized by node attributes and a notion of support that may include node weights, attribute weights and edge weights. 
+In many applications modelled by AFGs, complex structural sub-graph patterns may be prevalent. These sub-graphs are often unknown and non-trivial to detect, but they may represent important characteristics of the application. Given the richness of the model, the notion of ``prevalence'' or ``support'' of such patterns, as a measure of interestingness or importance to analysts, is often difficult to capture by simply counting the number of occurrences of the pattern in the AFG. Instead, when modelling an application with AFGs the interesting and useful patterns that an analyst wants to detect are also characterized by node attributes and a notion of support that may include node weights, attribute weights and edge weights. 
 
 \begin{figure}[h!]
 \centering
-%    \includegraphics[scale=0.5]{figures/pattern_airport.eps}
-   \includegraphics[scale=0.2]{figures/figure3.pdf}
+%    \includegraphics[scale=0.1]{figures/pattern_airport.eps}
+   \includegraphics[scale=0.1]{figures/figure3.pdf}
     \caption{Pattern in the goods distribution example.}
     \label{fig:Pattern}  
 \end{figure}
 
-\REM{
-In the illustrative transportation example, an analyst may be interested in transportation patterns that account for high volumes of certain good being transported between subsets of cities.  For instance, one such pattern that may be found in the example is depicted in Figure~\ref{fig:Pattern} and shows a sub-graph that reveals that there is a high volume of rice being transported from one city to two other cities. The sub-graph itself may or may not be ``frequent'' in the set of AFGs, {\em i.e.} it may or may not not occur in a large number of the AFGs corresponding to different companies. However, when considering the attribute values (in this case, volume of transported goods) in aggregate for those AFGs in which the pattern does occur, the ``support'' of the pattern is considered high. Once the pattern is identified, the analyst could then examine each occurrence of the pattern to know, {\em e.g} which two of the cities typically receive more rice, and from which of the other cities they receive the rice from.
-}
+Different applications may benefit from using other definitions of a support metric that takes more than the frequency of pattern occurrences into account. Section~\ref{sec:CaseStudies} discusses an application of AFGs in compiler optimization and software profiling. Although the remainder of this paper will not discuss logistics-based problems, the example in Figure~\ref{fig:Airport} seeks to underscore that AFGs and methods to discover supported patterns in AFGs are broadly applicable. However, such a method that takes the full structural information present in AFGs into account while searching for patterns does not exist.
 
-Different applications may benefit from using different, application-specific, or even analysis-specific, definitions of a support metric that takes more than the frequency of pattern occurrences into account. Section~\ref{sec:CaseStudies} discusses two applications of AFGs in compiler optimization and software profiling. Although the remainder of this paper will not discuss logistics-based problems, the example in~\ref{fig:Airport} seeks to underscore that AFGs and methods to discover supported patterns in AFGs are broadly applicable. However, such a method that takes the full structural information present in AFGs into account while searching for patterns does not exist.
-
-Existing graph-mining algorithms are all severely limited in their applicability to AFGs. None of them is able to find general sub-graph patterns in AFGs that take into account multiple node attributes as well as weights in nodes and edges. A number of algorithms proposed in the literature perform sub-graph mining only on undirected and unweighted graphs, with no attributes~\cite{gSpan}~\cite{Gaston}~\cite{FFSM}~\cite{FSP}~\cite{AGM}. Such algorithms mine datasets of graphs for \emph{frequent sub-graphs}, which are patterns that occur more than a certain number of times in the dataset. An extension to the classic frequent sub-graph mining algorithm gSpan~\cite{gSpan} calculates the support value of patterns in edge-weighted graphs with undirected edges and with no node attributes~\cite{Jiang}. For all the aforementioned algorithms, the only way to support multiple attributes per node would be to convert each node with $n$ attributes into $n$ nodes with one attribute each (the attribute thus being a node label), and adding an edge of weight 0 between every pair of them. The problem with this approach is that it makes the algorithms significantly more time-consuming due to the increase in number of nodes. This graph conversion alsolimits the application of search-space pruning techniques.
+Existing graph-mining algorithms are all severely limited in their applicability to AFGs. None of them is able to find general sub-graph patterns in AFGs that take into account multiple node attributes as well as weights in nodes and edges. A number of algorithms proposed in the literature perform sub-graph mining only on undirected and unweighted graphs, with no attributes~\cite{gSpan}~\cite{Gaston}~\cite{FFSM}~\cite{FSP}~\cite{AGM}. Such algorithms mine datasets of graphs for \emph{frequent sub-graphs}, which are patterns that occur more than a certain number of times in the dataset. 
 
 The only work on mining patterns in AFGs is the FlowGSP algorithm proposed by \emph{Jocksch~\etal}~\cite{FlowGSP}. However, FlowGSP can only find sub-path patterns, while the algorithm described in this work finds all the patterns that FlowGSP does and additional patterns that encompass multiple sub-paths in the dataset.  
 
-This paper presents AFGMiner, the first algorithm, to the best of our knowledge, to address the problem of mining AFGs for general sub-graph patterns. AFGMiner takes as input a set of AFGs and a support measure $F$ that may be formulated by taking into account the attribute weights, node weights and edge weights of the occurrences of patterns. AFGMiner returns all patterns $P$, called \emph{heavyweight patterns}, whose support $F(P)$ is higher than a threshold. This threshold is user-specified as commonly assumed in pattern-mining approaches.
+This paper presents AFGMiner, the first algorithm, to the best of our knowledge, to address the problem of mining AFGs for general sub-graph patterns. AFGMiner takes as input a set of AFGs and a support measure $MinSup$ that may be formulated by taking into account the attribute weights, node weights and edge weights of the occurrences of patterns. AFGMiner returns all patterns $P$, called \emph{heavyweight patterns}, whose support $MinSup(P)$ is higher than a threshold. This threshold is user-specified as commonly assumed in pattern-mining approaches.
 The main contributions of this paper are as follows: 
 
 \begin{enumerate}
@@ -54,9 +50,7 @@ The main contributions of this paper are as follows:
 
 \item Development of HEPMiner, a tool that automates the analysis of hardware-instrumented profiles. HEPMiner allows compiler developers to mine for heavyweight patterns that represent particular \emph{execution patterns}. Discovered patterns indicate potential, non-obvious, opportunities for compiler and architecture-design improvements.
 
-\item Development of SCPMiner, a tool that automates the analysis of profiled application source-code. SCPMiner allows application developers to mine for \emph{source-code patterns} and thus improves the performance of large software systems through changes at the source-code level.
-
-\item Complexity and scalability analysis of AFGMiner, comparison against the FlowGSP algorithm and qualitative analysis of patterns found by HEPMiner and SCPMiner tools when applied to benchmarks.
+\item Complexity and scalability analysis of AFGMiner, comparison against the FlowGSP algorithm and qualitative analysis of patterns found by HEPMiner when applied to the DayTrader benchmark running on IBM's WebSphere Application Server~\cite{WAS}.
 \end{enumerate} 
 
 

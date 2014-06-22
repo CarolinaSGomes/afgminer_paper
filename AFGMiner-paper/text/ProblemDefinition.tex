@@ -3,7 +3,7 @@
 \def\etal{{\it et al.\/}}
 \def\viz{{\it viz.,\/ }}
 
-An attributed flow graph (AFG) $G$, that belongs to a dataset $DS$ of AFGs, is defined as $G = \langle V, E, A, \alpha, w^E, w^V, w^{A,V}, l /rangle$ where:
+An attributed flow graph (AFG) $G$, that belongs to a dataset $DS$ of AFGs, is defined as $G = \langle V, E, A, \alpha, w^E, w^V, w^{A,V}, l \rangle$ where:
 
 \begin{enumerate}
 \item $V$ is a set of nodes.
@@ -27,11 +27,11 @@ $\Sigma_{(x, v^*) \in E}w^E((x, v^*))$ $= \Sigma_{(v^*, y) \in E}w^E((v^*, y))$.
 
 \end{enumerate}
 
-A directed graph $g = <V_g, E_g, A_g, \alpha_g, w_g^E, w_g^V, w_g^{A,V}, l_g>$ is a \emph{sub-graph} of $G$, if $V_g$ is a subset of the nodes in $G$, $E_g$ is a subset of the edges in $G$ that exist between nodes in $V_g$, A is a subset of the attributes in $G$, and the functions $\alpha_g, w_g^E, w_g^V, w_g^{A,V}, l_g$ are the corresponding functions in $G$, restricted to the corresponding domains of nodes, edges and attributes in $g$. 
+A directed graph $g = \langle V_g, E_g, A_g, \alpha_g, w_g^E, w_g^V, w_g^{A,V}, l_g \rangle$ is a \emph{sub-graph} of $G$, if $V_g$ is a subset of the nodes in $G$, $E_g$ is a subset of the edges in $G$ that exist between nodes in $V_g$, A is a subset of the attributes in $G$, and the functions $\alpha_g, w_g^E, w_g^V, w_g^{A,V}, l_g$ are the corresponding functions in $G$, restricted to the corresponding domains of nodes, edges and attributes in $g$. 
 
 A \emph{pattern} is a graph $P = <V_P, E_P, A, \alpha>$, where $V_P$ is a set of nodes with attributes from $A$ associated to them by $\alpha$, and $E_P$ is a set of directed edges; note that a pattern does not include weights.  A pattern is an abstraction in which the nodes represent sets of attributes that are relevant under a \emph{support criteria}, and the edges represent an ordering for such attribute sets.
 
-An \emph{occurrence} $g$ of a pattern $P$ is a sub-graph of $G$ that ``matches $P$ with a maximum gap size $k_{max}$''; $g$ \emph{matches} $P$ \emph{with a maximum gap size} $k_{max}$ if there is a function $m$ that maps every node $v$ in $P$ to a node in $g$ so that for every edge $(v_i, v_j)$ in $P$, there is a path in $g$ that starts at node $m(v_i)$ and ends at node $m(v_j)$, and that has at most $k_{max}$ nodes between $m(v_i)$ and $m(v_j)$. This definition of an occurrence of a pattern allows a number $k_{max}$ of ``mismatches'' or ``don't-care nodes'' when mapping each edge in the pattern $P$ to a sub-graph in G, and $k_{max}$ can be chosen by a user in order to allow approximate matches in applications where such an approach is useful. A $k-match$ of a pattern $P$ is an occurrence $g_P$ of $P$ that was found by using a gap size of $k_{max}$. As an example, in Figure~\ref{fig:GapExample} we have a pattern on the left and an AFG in which a 0-match, an 1-match and a 2-match of the pattern can be found. 
+An \emph{occurrence} $g$ of a pattern $P$ is a sub-graph of $G$ that ``matches $P$ with a maximum gap size $k_{max}$''; $g$ \emph{matches} $P$ \emph{with a maximum gap size} $k_{max}$ if there is a function $m$ that maps every node $v$ in $P$ to a node in $g$ so that for every edge $(v_i, v_j)$ in $P$, there is a path in $g$ that starts at node $m(v_i)$ and ends at node $m(v_j)$, and that has at most $k_{max}$ nodes between $m(v_i)$ and $m(v_j)$. This definition of an occurrence of a pattern allows a number $k_{max}$ of ``mismatches'' or ``don't-care nodes'' when mapping each node in the pattern $P$ to a sub-graph in G, and $k_{max}$ can be chosen by a user in order to allow approximate matches in applications where such an approach is useful. A $k_{max}$-match of a pattern $P$ is an occurrence $g_P$ of $P$ that was found by using a maximum gap size of $k_{max}$. As an example, in Figure~\ref{fig:GapExample} we have a pattern on the left and an AFG in which a 0-match, an 1-match and a 2-match of the pattern can be found. 
 
 \begin{figure}[h!]
 \centering
@@ -41,6 +41,6 @@ An \emph{occurrence} $g$ of a pattern $P$ is a sub-graph of $G$ that ``matches $
     \label{fig:GapExample}  
 \end{figure}
 
-Given a dataset $DS$ of AFGs, a \emph{support measure} $F$ that defines the support of patterns $P$ in $DS$, and a threshold value $T$, the problem we address in this paper is to find all patterns $P$ for which $F(P) > T$. We call the patterns for which $F(P) > T$ \emph{heavyweight patterns}, and we call the problem itself {\bf Heavyweight Pattern Mining in Attributed Flow Graphs} (for short, \emph{heavyweight pattern mining}).
+Given a dataset $DS$ of AFGs, a \emph{support measure} $MinSup$ that defines the minimum support of patterns $P$ in $DS$, the maximum number of attributes allowed in any given pattern node $MaxAttrs$ and a threshold value $T$. The problem we address in this paper is to find all patterns $P$ with at most $MaxAttrs$ attributes in each node, for which $MinSup(P) > T$. We call the patterns for which $MinSup(P) > T$ \emph{heavyweight patterns}, and we call the problem itself {\bf Heavyweight Pattern Mining in Attributed Flow Graphs} (for short, \emph{heavyweight pattern mining}).
 
 

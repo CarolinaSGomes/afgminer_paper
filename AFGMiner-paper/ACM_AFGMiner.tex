@@ -36,8 +36,7 @@
 \author{
 \alignauthor
 Carolina Sim\~oes Gomes\\
-       \affaddr{EMC Corporation of Canada}\\
-       \affaddr{6020 104 Street NW}\\
+       \affaddr{Intuit Canada}\\
        \affaddr{Edmonton, AB, Canada}
 % 2nd. author
 \alignauthor
@@ -55,19 +54,18 @@ Joerg Sander\\
 \alignauthor 
 Joran Siu\\
        \affaddr{IBM Toronto Software Laboratory}\\
-       \affaddr{8200 Warden Ave.}\\
        \affaddr{Markham, ON, Canada}
 \alignauthor 
 Li Ding\\
-       \affaddr{IBM Toronto Software Laboratory}\\
-       \affaddr{8200 Warden Ave.}\\
-       \affaddr{Markham, ON, Canada}
+       \affaddr{Amazon Canada}\\
+       \affaddr{Toronto, ON, Canada}
 % \and  % use '\and' if you need 'another row' of author names
 % 4th. author
 }
 
+\maketitle
 \begin{abstract}
-This paper is concerned with the discovery of patterns in {\em attributed} flow graphs that have sets of attributes associated with their nodes. A connection between nodes is represented as a directed edge. The amount of load that goes through a path between nodes, or the frequency of transmission of such load between nodes, is represented as edge weights. A heavyweight pattern is a sub-set of attributes, found in a dataset of attributed flow graphs, that are connected by edges and have a computed weight higher than an user-defined threshold. This paper introduces a new algorithm, called AFGMiner, that finds heavyweight patterns in a dataset of attributed flow graphs and associates each pattern with its occurrences. The paper also describes two new tools, HEPMiner and SCPMiner. They use AFGMiner and can be utilized by compiler and application developers, respectively, to solve Profile-based Program Analysis modeled as a heavyweight pattern mining problem.
+This paper defines a new problem - heavyweight pattern mining in attributed flow graphs. The problem can be described as the discovery of patterns in flow graphs that have sets of attributes associated with their nodes. A connection between nodes is represented as a directed edge. The amount of load that goes through a path between nodes, or the frequency of transmission of such load between nodes, is represented as edge weights. A heavyweight pattern is a sub-set of attributes, found in a dataset of attributed flow graphs, that are connected by edges and have a computed weight higher than an user-defined threshold. A new algorithm called AFGMiner is introduced, the first one to our knowledge that finds heavyweight patterns in a dataset of attributed flow graphs and associates each pattern with its occurrences. The paper also describes a new tool for compiler engineers, HEPMiner, that applies the AFGMiner algorithm to Profile-based Program Analysis modeled as a heavyweight pattern mining problem.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -76,9 +74,9 @@ This paper is concerned with the discovery of patterns in {\em attributed} flow 
 \category{I.2.8}{Computing Methodologies}{Artificial Intelligence}[Problem Solving, Control Methods, and Search, Graph and tree search strategies]
 
 
-\terms{Data Mining}
+%\terms{Data Mining}
 
-\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
+%\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
 
 \section{Introduction}
 	\label{sec:intro}
@@ -104,7 +102,7 @@ This paper is concerned with the discovery of patterns in {\em attributed} flow 
 	\label{sec:pAFGMiner}
 	\input{text/pAFGMiner.tex}
 	
-\section{Case Studies: Using AFGMiner\\
+\section{Case Study: Using AFGMiner\\
               for Program Analysis}
 	\label{sec:CaseStudies}
 	\input{text/CaseStudies.tex}
@@ -112,10 +110,6 @@ This paper is concerned with the discovery of patterns in {\em attributed} flow 
 	                   and Computer Architects}
 		\label{sec:HEPMiner}
 		\input{text/HEPMiner.tex}
-	\subsection{AFGMiner to the Help of Application\\
-	                   Programmers}
-		\label{sec:SCPMiner}
-		\input{text/SCPMiner.tex}
 		
 \section{Performance Evaluation\\
               Methodology}

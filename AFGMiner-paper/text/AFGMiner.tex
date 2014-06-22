@@ -17,9 +17,9 @@ The support value policy works as follows. For each occurrence $g$ of a pattern 
 The principle behind separately computing the support values of node attributes and edges of a pattern and then choosing the maximum between the two values is that a pattern is relevant if either, or both, the attributes or edges of its occurrences have significant weight in comparison to the sum of all node weights and to the sum of all edge weights in the dataset. The support-value policy selected for AFGMiner is conservative because only the minimum edge weight and the minimum node attribute weight of each occurrence are used in the computation. Less conservative support-value policies could be adopted as long as they are anti-monotonic.  
 
 \subsection{Matching Patterns to Occurrences}
-When a candidate pattern is generated, its DFS Code is computed and the algorithm checks if the DFS Code already exists in $H$. If the DFS Code is not present, the candidate pattern is not redundant and the process of mining for it in the dataset begins. The mining process finds sub-graphs $g$ in AFGs of $DS$ that match the candidate pattern $p$. AFGMiner may use any sub-graph isomorphism detection algorithm to match patterns and sub-graphs, as long as the algorithm is adapted to take node attributes into consideration when detecting isomorphism. The prototype implementation of AFGMiner adapts VF2~\cite{Cordella}, an algorithm that is faster than alternatives for graphs that are relatively regular, have a large number of nodes and whose nodes have small valency~\cite{Foggia}. For the case studies described in this paper, AFGs meet this criteria. 
+When a candidate pattern is generated, its DFS Code is computed and the algorithm checks if the DFS Code already exists in $H$. If the DFS Code is not present, the candidate pattern is not redundant and the process of mining for it in the dataset begins. The mining process finds sub-graphs $g$ in AFGs of $DS$ that match the candidate pattern $p$. AFGMiner may use any sub-graph isomorphism detection algorithm to match patterns and sub-graphs, as long as the algorithm is adapted to take node attributes into consideration when detecting isomorphism. The prototype implementation of AFGMiner adapts VF2~\cite{Cordella}, an algorithm that is faster than alternatives for graphs that are relatively regular, have a large number of nodes and whose nodes have small valency~\cite{Foggia}. For the case study described in this paper, AFGs meet this criteria. 
 
-VF2 produces a mapping $M$ between nodes in $p$ and nodes in $G$, where $G$ contains at least as many nodes as $p$. $M$ is expressed as a set of pairs $\{n, m\}$, where $n \in p$ and $m \in G$ are nodes. The mapping is said to be an isomorphism if $M$ is a bijective function that preserves the branch structure of both $p$ and $G$. This mapping is represented as a state $s$ in a State Space Representation (SSR). This state, which we call a \emph{miner state}, goes from empty (no mapping between nodes in $p$ and nodes in $G$) to a goal state (all nodes in $p$ mapped to respective nodes in $G$) during the process of finding $M$. A state transition between any miner state $s_1$ and its successor $s_2$ represents the addition of a new pair $\{n, m\}$ to the collections of known pairs that compose $M$. The addition of new pairs only occurs if $n$ and $m$ form a feasible pair. The rules for a pair of nodes to be considered feasible, in the case of AFGs, are as follows: (i) attributes of $m$ should be a proper superset of attributes in $n$; (ii) topological structure of $n$ and $m$ should be the same.
+VF2 produces a mapping $M$ between nodes in $p$ and nodes in $G$, where $G$ contains at least as many nodes as $p$. $M$ is expressed as a set of pairs $\{n, m\}$, where $n \in p$ and $m \in G$ are nodes. The mapping is said to be an isomorphism if $M$ is a bijective function that preserves the branch structure of both $p$ and $G$. This mapping is represented as a state $s$ in a State Space Representation (SSR). This state, which we call a \emph{miner state}, goes from empty (no mapping between nodes in $p$ and nodes in $G$) to a goal state (all nodes in $p$ mapped to respective nodes in $G$) during the process of finding $M$. A state transition between any miner state $s_1$ and its successor $s_2$ represents the addition of a new pair $\{n, m\}$ to the collections of known pairs that compose $M$. The addition of new pairs only occurs if $n$ and $m$ form a feasible pair. The rules for a pair of nodes to be considered feasible, in the case of AFGs, are as follows: (i) attributes of $m$ should be a proper superset of attributes in $n$; (ii) topological structure around $n$ and $m$ should be the same.
 
 \subsection{Generation of Candidate Patterns}
 The input to AFGMiner is a list $A_0$ of attributes that occur in the dataset. Each one of the possible attributes is used to create a set of 0-edge candidate patterns with a single attribute in their nodes, as shown in Figure~\ref{fig:example_0-edge}. The support value threshold in this example is $T = 1/23$. Each one of the candidate patterns $p$ is mined for in the dataset $DS$, and, if $p$ is heavyweight, its only attribute is added to $A_1$. $A_1$ is the list of distinct attributes that belong to 0-edge heavyweight patterns and that are used in the generation of 1-edge candidate patterns. 
@@ -28,78 +28,41 @@ After all 0-edge heavyweight patterns of a single attribute are found, the attri
 
 The process of mining for candidate patterns with an increasing number of attributes in their single node (in the case of 0-edge patterns) or in their extension node (in the case of $k$-edge patterns with $k > 0$) is called \emph{attribute-set growth}. Attribute-set growth is useful because an attribute set is only used to generate a pattern if all of its sub-sets generated heavyweight patterns. 
 
-Each one of the 0-edge heavyweight patterns spans multiple child candidates, one for every attribute in $A_1$, in which the extension node contains a single attribute from $A_1$. Thus, all the pairs of nodes connected by an edge in Figure~\ref{fig:example_1-edge} are child candidates for the example. AFGMiner searches for matches for each candidate child pattern in the dataset as soon as the pattern is generated. If a candidate pattern is found to be heavyweight, all its attributes are added to $A_2$. Attributes in $A_2$ are then used to generate 1-edge candidate patterns that have two attributes in their extension node.  In Figure~\ref{fig:example_1-edge_2-attribute} a candidate is generated for each pair of nodes connected by an edge. For clarity, only candidates generated by the node with single attribute $a$ are shown. The attribute-set growth process then proceeds until no more 1-edge candidate patterns of certain number of attributes in their extension node can be found. In Figure~\ref{fig:example_2-edge}, 2-edge patterns are shown. 
+Each one of the 0-edge heavyweight patterns spans multiple child candidates, one for every attribute in $A_1$, in which the extension node contains a single attribute from $A_1$. Thus, all the pairs of nodes connected by an edge in Figure~\ref{fig:example_1-edge} are child candidates for the example. AFGMiner searches for matches for each candidate child pattern in the dataset as soon as the pattern is generated. If a candidate pattern is found to be heavyweight, all its attributes are added to $A_2$. Attributes in $A_2$ are then used to generate 1-edge candidate patterns that have two attributes in their extension node.  In Figure~\ref{fig:example_1-edge_2-attribute} a candidate is generated for each pair of nodes connected by an edge. For clarity, only candidates generated by the pattern $a$ $\rightarrow$ $a$ are shown. The attribute-set growth process then proceeds until no more 1-edge candidate patterns of certain number of attributes in their extension node can be found. In Figure~\ref{fig:example_2-edge}, 2-edge patterns are shown. 
 
 A set of patterns that have the same number of edges is called a \emph{generation}. AFGMiner produces and mines for candidate patterns generation by generation as described above. Patterns of a certain generation are only created and mined after all the heavyweight patterns of the previous generation have been found. This is important because it allows the algorithm to use only the $A_k$ set of distinct attributes present in the $(k - 1)$-th generation to compose the patterns of the $k$-th generation, thus restricting the number of candidate patterns produced.
 
-\REM{
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.2]{figures/example_2.eps}
-    \caption{0-edge candidate patterns.}
-    \label{fig:Example1}  
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-    \includegraphics[scale=0.2]{figures/example_3.eps}
-    \caption{Attribute-set growth for 0-edge candidate patterns.}
-    \label{fig:Example2}  
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-    \includegraphics[scale=0.2]{figures/example_4.eps}
-    \caption{1-edge candidate patterns.}
-    \label{fig:Example3}  
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-    \includegraphics[scale=0.2]{figures/example_5.eps}
-    \caption{Attribute-set growth for 1-edge candidate patterns.}
-    \label{fig:Example4}  
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-    \includegraphics[scale=0.2]{figures/example_6.eps}
-    \caption{2-edge candidate patterns.}
-    \label{fig:Example5}  
-\end{figure}
-}
-
-\begin{figure}[h!]
-\centering
-    \includegraphics[scale=0.2]{figures/example_0-edge.pdf}
+    \includegraphics[scale=0.15]{figures/example_0-edge.pdf}
     \caption{0-edge candidate patterns.}
     \label{fig:example_0-edge}  
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.2]{figures/example_0-edge_2-attribute.pdf}
+    \includegraphics[scale=0.15]{figures/example_0-edge_2-attribute.pdf}
     \caption{Attribute-set growth for 0-edge candidate patterns.}
     \label{fig:example_0-edge_2-attribute}  
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.2]{figures/example_1-edge.pdf}
+    \includegraphics[scale=0.15]{figures/example_1-edge.pdf}
     \caption{1-edge candidate patterns.}
     \label{fig:example_1-edge}  
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.2]{figures/example_1-edge_2-attribute.pdf}
-    \caption{Attribute-set growth for 1-edge candidate pattern node $a$.}
+    \includegraphics[scale=0.15]{figures/example_1-edge_2-attribute.pdf}
+    \caption{Attribute-set growth for 1-edge candidate pattern node $a$ $\rightarrow$ $a$. }
     \label{fig:example_1-edge_2-attribute}  
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.2]{figures/example_2-edge.pdf}
+    \includegraphics[scale=0.15]{figures/example_2-edge.pdf}
     \caption{2-edge candidate patterns.}
     \label{fig:example_2-edge}  
 \end{figure}

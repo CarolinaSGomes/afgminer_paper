@@ -1,7 +1,5 @@
 A parallel version of AFGMiner benefits from the multiple cores available in many computing systems. An important challenge in the implementation of a parallel version of AFGMiner-locreg, {\bf p-AFGMiner}, is the distribution of the workload to improve load balancing.
-\REM{
-AFGMiner-locreg executes the following steps while a queue $Q$ of heavyweight patterns to be extended is not empty: (i) collect all distinct heavyweight attributes that belong to the $k$-edge patterns in $Q$, and insert them into $A_{k + 1}$; (ii) extend the patterns and test their children to generate a set of heavyweight child patterns $C$ that have one additional edge in comparison to patterns already in $Q$; (iii) add elements from $C$ into the output set to be returned to the user; and (iv) add elements from $C$ into $Q$. Patterns of $(k + 1)$ edges, one by one, become head-of-queue, and thus go through the steps described above, when all patterns of $k$ edges have been similarly processed and removed from the queue. A pattern $p$ is \emph{dependent} on a pattern $q$ if $p$ is extended from $q$. Therefore, $q$ needs to be mined and its support value determined before $p$ is processed. The set of patterns that have the same number of edges forms a \emph{generation}. There are no dependencies among patterns of the same generation. That is because each $k$-edge pattern depends only on its parent pattern and on $A_k$, which contains the distinct attributes from the previous generation, or, if $k = 0$, the possible attributes from $A$. Therefore, the processing of patterns belonging to the same generation can be safely divided amongst different threads. 
-}
+
 p-AFGMiner executes the following steps while a queue $Q$ of heavyweight patterns is not empty (s signals a sequential step, while p signals a parallel step): (i-s) fork into $n$ threads to start the processing of a new generation composed of patterns with $k$ edges.
 
 For $k = 0$, (ii-s) divide the set $A_0$ among the threads and (iii-p) each thread generates 0-edge candidate patterns using their part of $A_0$ and searches the database for these patterns --- heavyweight patterns form a local queue $Q_{TL}$ and the set of attributes in $Q_{TL}$ form $A_{TL}$, the local set of attributes.
@@ -14,7 +12,7 @@ The distribution of $Q$ among threads should balance the workload to improve the
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.2]{figures/WorkDistributionHeuristic.pdf}
+    \includegraphics[scale=0.3]{figures/WorkDistributionHeuristic.pdf}
     \caption{Illustration of pattern distribution heuristic.}
     \label{fig:WorkDistributionHeuristic}  
 \end{figure}
