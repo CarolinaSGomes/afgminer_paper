@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  23 JUN 2014 08:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  3 OCT 2014 03:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,12 +299,12 @@ e
 LaTeX Warning: No \author given.
 
 (./text/Introduction.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -314,207 +314,110 @@ File: figures/attributed_flow_graph_descpr.pdf Graphic file (type pdf)
 
 <use figures/attributed_flow_graph_descpr.pdf>
 Package pdftex.def Info: figures/attributed_flow_graph_descpr.pdf used on input
- line 9.
-(pdftex.def)             Requested size: 130.08038pt x 97.56029pt.
+ line 7.
+(pdftex.def)             Requested size: 108.40031pt x 81.30023pt.
 
 <figures/attributed_flow_graph3.pdf, id=2, 542.025pt x 722.7pt>
 File: figures/attributed_flow_graph3.pdf Graphic file (type pdf)
 
 <use figures/attributed_flow_graph3.pdf>
 Package pdftex.def Info: figures/attributed_flow_graph3.pdf used on input line 
-10.
-(pdftex.def)             Requested size: 97.56029pt x 130.08038pt.
+8.
+(pdftex.def)             Requested size: 81.30023pt x 108.40031pt.
 
-<figures/attributed_flow_graph_airport2.pdf, id=3, 722.7pt x 542.025pt>
-File: figures/attributed_flow_graph_airport2.pdf Graphic file (type pdf)
-
-<use figures/attributed_flow_graph_airport2.pdf>
-Package pdftex.def Info: figures/attributed_flow_graph_airport2.pdf used on inp
-ut line 22.
-(pdftex.def)             Requested size: 144.53743pt x 108.40308pt.
-
-<figures/figure3.pdf, id=4, 1027.84pt x 770.88pt>
-File: figures/figure3.pdf Graphic file (type pdf)
- <use figures/figure3.pdf>
-Package pdftex.def Info: figures/figure3.pdf used on input line 32.
-(pdftex.def)             Requested size: 102.79001pt x 77.09251pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
- <./figures/attributed_flow_graph_descpr.pdf> <./figures/attributed_flow_graph3
-.pdf> <./figures/attributed_flow_graph_airport2.pdf>]
-Underfull \hbox (badness 2875) in paragraph at lines 47--48
+Underfull \hbox (badness 2875) in paragraph at lines 21--22
 []\OT1/ptm/m/n/10 Definition of the Attributed-Flow-Graph Min-ing
  []
 
-) (./text/ProblemDefinition.tex [2 <./figures/figure3.pdf>]
-<figures/match_example.pdf, id=156, 959.585pt x 412.54124pt>
+) (./text/ProblemDefinition.tex [1{/usr/local/texlive/2013/texmf-var/fonts/map/
+pdftex/updmap/pdftex.map}
+
+
+ <./figures/attributed_flow_graph_descpr.pdf> <./figures/attributed_flow_graph3
+.pdf>]
+<figures/match_example.pdf, id=89, 959.585pt x 412.54124pt>
 File: figures/match_example.pdf Graphic file (type pdf)
 
 <use figures/match_example.pdf>
 Package pdftex.def Info: figures/match_example.pdf used on input line 39.
 (pdftex.def)             Requested size: 239.89566pt x 103.13506pt.
-) (./text/AFGMiner.tex [3 <./figures/match_example.pdf>] <figures/example_0-edg
-e.pdf, id=170, 722.7pt x 542.025pt>
-File: figures/example_0-edge.pdf Graphic file (type pdf)
-
-<use figures/example_0-edge.pdf>
-Package pdftex.def Info: figures/example_0-edge.pdf used on input line 37.
-(pdftex.def)             Requested size: 108.40031pt x 81.30023pt.
-
-<figures/example_0-edge_2-attribute.pdf, id=171, 722.7pt x 542.025pt>
-File: figures/example_0-edge_2-attribute.pdf Graphic file (type pdf)
-
-<use figures/example_0-edge_2-attribute.pdf>
-Package pdftex.def Info: figures/example_0-edge_2-attribute.pdf used on input l
-ine 44.
-(pdftex.def)             Requested size: 108.40031pt x 81.30023pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/example_1-edge.pdf, id=172, 722.7pt x 542.025pt>
-File: figures/example_1-edge.pdf Graphic file (type pdf)
+) (./text/AFGMiner.tex
 
-<use figures/example_1-edge.pdf>
-Package pdftex.def Info: figures/example_1-edge.pdf used on input line 51.
-(pdftex.def)             Requested size: 108.40031pt x 81.30023pt.
+LaTeX Warning: Reference `ThesisRef' on page 2 undefined on input line 1.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Reference `ThesisRef' on page 2 undefined on input line 4.
 
-<figures/example_1-edge_2-attribute.pdf, id=173, 722.7pt x 542.025pt>
-File: figures/example_1-edge_2-attribute.pdf Graphic file (type pdf)
+[2 <./figures/match_example.pdf>]) (./text/Improvements.tex)
+(./text/pAFGMiner.tex) (./text/CaseStudies.tex
 
-<use figures/example_1-edge_2-attribute.pdf>
-Package pdftex.def Info: figures/example_1-edge_2-attribute.pdf used on input l
-ine 58.
-(pdftex.def)             Requested size: 108.40031pt x 81.30023pt.
+LaTeX Warning: Reference `ThesisRef' on page 3 undefined on input line 1.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/example_2-edge.pdf, id=174, 722.7pt x 542.025pt>
-File: figures/example_2-edge.pdf Graphic file (type pdf)
-
-<use figures/example_2-edge.pdf>
-Package pdftex.def Info: figures/example_2-edge.pdf used on input line 65.
-(pdftex.def)             Requested size: 108.40031pt x 81.30023pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./text/Improvements.tex [4 <./figures/example_0-edge.pdf>])
-(./text/pAFGMiner.tex
-<figures/WorkDistributionHeuristic.pdf, id=200, 722.7pt x 542.025pt>
-File: figures/WorkDistributionHeuristic.pdf Graphic file (type pdf)
-
-<use figures/WorkDistributionHeuristic.pdf>
-Package pdftex.def Info: figures/WorkDistributionHeuristic.pdf used on input li
-ne 15.
-(pdftex.def)             Requested size: 216.81166pt x 162.60875pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5 <./figures/example_0-edge_2-attribute.pdf> <./figures/example_1-edge.pdf> <.
-/figures/example_1-edge_2-attribute.pdf> <./figures/example_2-edge.pdf>])
-(./text/CaseStudies.tex) (./text/HEPMiner.tex [6 <./figures/WorkDistributionHeu
-ristic.pdf>]) (./text/Methodology.tex
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 4.
+[3]) (./text/Methodology.tex
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 1.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1.
 )
 (./text/Evaluation.tex
-<figures/numPatternsComp.pdf, id=291, 1406.25375pt x 1059.96pt>
+<figures/numPatternsComp.pdf, id=106, 1406.25375pt x 1059.96pt>
 File: figures/numPatternsComp.pdf Graphic file (type pdf)
 
 <use figures/numPatternsComp.pdf>
 Package pdftex.def Info: figures/numPatternsComp.pdf used on input line 7.
-(pdftex.def)             Requested size: 253.11475pt x 190.78456pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[7] <figures/plot2.pdf, id=296, 796.9775pt x 597.23125pt>
+(pdftex.def)             Requested size: 140.6336pt x 106.0022pt.
+ [4 <./figures/numPatternsComp.pdf>]
+<figures/plot2.pdf, id=120, 796.9775pt x 597.23125pt>
 File: figures/plot2.pdf Graphic file (type pdf)
-
-<use figures/plot2.pdf>
+ <use figures/plot2.pdf>
 Package pdftex.def Info: figures/plot2.pdf used on input line 22.
-(pdftex.def)             Requested size: 318.78534pt x 238.88826pt.
+(pdftex.def)             Requested size: 159.39267pt x 119.44412pt.
 
-Overfull \hbox (65.73547pt too wide) in paragraph at lines 22--23
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/plot1.pdf, id=297, 512.73659pt x 331.28366pt>
+<figures/plot1.pdf, id=121, 512.73659pt x 331.28366pt>
 File: figures/plot1.pdf Graphic file (type pdf)
  <use figures/plot1.pdf>
 Package pdftex.def Info: figures/plot1.pdf used on input line 29.
-(pdftex.def)             Requested size: 256.36766pt x 165.64142pt.
+(pdftex.def)             Requested size: 128.18382pt x 82.82071pt.
 
-Overfull \hbox (3.3178pt too wide) in paragraph at lines 29--30
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/experimentC.pdf, id=298, 1027.84pt x 770.88pt>
+<figures/experimentC.pdf, id=122, 1027.84pt x 770.88pt>
 File: figures/experimentC.pdf Graphic file (type pdf)
 
 <use figures/experimentC.pdf>
 Package pdftex.def Info: figures/experimentC.pdf used on input line 36.
-(pdftex.def)             Requested size: 256.95937pt x 192.71953pt.
+(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
-Overfull \hbox (3.9095pt too wide) in paragraph at lines 36--37
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/experimentD.pdf, id=299, 1027.84pt x 770.88pt>
+<figures/experimentD.pdf, id=123, 1027.84pt x 770.88pt>
 File: figures/experimentD.pdf Graphic file (type pdf)
 
 <use figures/experimentD.pdf>
 Package pdftex.def Info: figures/experimentD.pdf used on input line 43.
-(pdftex.def)             Requested size: 256.95937pt x 192.71953pt.
-
-Overfull \hbox (3.9095pt too wide) in paragraph at lines 43--44
- [][] 
- []
+(pdftex.def)             Requested size: 205.56436pt x 154.17326pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./text/Qualitative.tex [8 <./figures/numPatternsComp.pdf> <./figures/plot2.p
-df> <./figures/plot1.pdf>]) (./text/Related.tex) (./text/Future.tex)
-(./text/Conclusion.tex [9 <./figures/experimentC.pdf> <./figures/experimentD.pd
-f>]) (./AFGMiner.bbl
-Underfull \hbox (badness 3375) in paragraph at lines 56--58
+) (./text/Qualitative.tex) (./text/Related.tex [5 <./figures/plot2.pdf> <./figu
+res/plot1.pdf> <./figures/experimentC.pdf> <./figures/experimentD.pdf>])
+(./text/Future.tex) (./text/Conclusion.tex) (./AFGMiner.bbl
+Underfull \hbox (badness 3375) in paragraph at lines 30--32
 []\OT1/ptm/m/n/8 IBM Cor-po-ra-tion, ``Web-Sphere Ap-pli-ca-tion Server,'' http
 ://www-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 []\OT1/ptm/m/n/8 ``IBM zEn-ter-prise Sys-tem Tech-ni-cal In-tro-duc-tion,''
  []
 
 
-Underfull \hbox (badness 1565) in paragraph at lines 112--115
+Underfull \hbox (badness 1565) in paragraph at lines 89--92
 []\OT1/ptm/m/n/8 A. Dreweke, M. Wor-lein, I. Fis-cher, D. Schell, T. Meinl, and
 
  []
@@ -531,39 +434,39 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[10] (./AFGMiner.aux)
+[6] (./AFGMiner.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 3382 strings out of 493315
- 51106 string characters out of 6137904
- 118368 words of memory out of 5000000
- 6719 multiletter control sequences out of 15000+600000
- 40049 words of font info for 84 fonts, out of 8000000 for 9000
+ 3307 strings out of 493315
+ 49288 string characters out of 6137904
+ 119245 words of memory out of 5000000
+ 6662 multiletter control sequences out of 15000+600000
+ 36949 words of font info for 72 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 37i,13n,24p,1242b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,13n,24p,1731b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texliv
-e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/
-2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2013/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2013/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/texmf-dist
-/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
-e1/urw/times/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/ti
-mes/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on AFGMiner.pdf (10 pages, 711298 bytes).
+e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/201
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fo
+nts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1
+/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times
+/utmri8a.pfb>
+Output written on AFGMiner.pdf (6 pages, 433512 bytes).
 PDF statistics:
- 406 PDF objects out of 1000 (max. 8388607)
- 281 compressed objects within 3 object streams
+ 207 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

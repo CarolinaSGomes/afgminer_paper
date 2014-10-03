@@ -4,43 +4,43 @@ We also compared patterns found by AFGMiner and FlowGSP. Figure~\ref{fig:NumPatt
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.18]{figures/numPatternsComp.pdf}
+    \includegraphics[scale=0.1]{figures/numPatternsComp.pdf}
     \caption{Patterns found by FlowGSP and AFGMiner}
     \label{fig:NumPatterns}
 \end{figure}
 
-\subsection{Performance Analysis}
-\label{subsec:Scalability}
-From the results of Experiments {\bf A} (Figure~\ref{fig:Plot2}) and {\bf B} (Figure~\ref{fig:Plot1}) we conclude that the MaxAttrs value is not as relevant a factor in the run-time performance of AFGMiner as the number of EFG nodes visited during the mining process. Figure~\ref{fig:Plot2} shows that, in the DayTrader Benchmark, it is more likely that heavyweight patterns have around 7 attributes per node, because making MaxAttrs higher than 7 does not produce statistically significant differences in run-time. It is worth noting that the effects of MaxAttrs on the performance of AFGMiner is dependent on the program being analyzed. If the program's run-time behavior causes more hardware events to happen, then the influence of MaxAttrs is more visible.
+Relevant observations from the experiments are:
 
-Experiment {\bf B} changes the support value in order to increase the number of EFG nodes that the algorithm must visit. Figure~\ref{fig:Plot1} shows that the run-time of AFGMiner increases moderately with the number of EFG nodes visited. The performance of HEPMiner was deemed sufficient for it to be adopted as a handy tool by compiler developers in difficult analysis cases such as applications with flat profiles. However, better candidate pruning techniques could be developed to make AFGMiner faster. If more application-specific versions of the algorithm are developed in the future, those could take into account knowledge about which attributes are more likely to appear in the heavyweight patterns leading to more effective pruning of candidates.
-
-Experiments {\bf C} (Figure~\ref{fig:Plot3}) and {\bf D} (Figure~\ref{fig:Plot4}) show run-times for AFGMiner-locreg and p-AFGMiner, with the number of threads used in parenthesis. As expected, mining becomes faster with more threads being used. However, using more threads has a diminishing effect on run-time decrease as the MinSup or MMH increase. The reason is that, with fewer patterns to mine due to the increase in MinSup/MMH, time spent on data loading and temporary bookkeeping of patterns and pattern occurrences - both done serially by p-AFGMiner - start dominating the total run-time. 
+\begin{enumerate}
+\item The MaxAttrs value is not as relevant a factor in the run-time performance of AFGMiner as the number of EFG nodes visited during the mining process.
+\item The run-time of AFGMiner increases moderately with the number of EFG nodes visited.
+\item Although increasing the number of threads logically decreases run-time, there is a diminishing effect as MinSup/MMH increase, as time spent on data loading and temporary bookkeeping of patterns and pattern occurrences - both done serially by p-AFGMiner - start dominating the total run-time.
+\end{enumerate}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.4]{figures/plot2.pdf}
+    \includegraphics[scale=0.2]{figures/plot2.pdf}
     \caption{Experiment A.}
     \label{fig:Plot2}  
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.5]{figures/plot1.pdf}
+    \includegraphics[scale=0.25]{figures/plot1.pdf}
     \caption{Experiment B.}
     \label{fig:Plot1}  
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.25]{figures/experimentC.pdf}
+    \includegraphics[scale=0.2]{figures/experimentC.pdf}
     \caption{Experiment C.}
     \label{fig:Plot3}  
 \end{figure}
 
 \begin{figure}[h!]
 \centering
-    \includegraphics[scale=0.25]{figures/experimentD.pdf}
+    \includegraphics[scale=0.2]{figures/experimentD.pdf}
     \caption{Experiment D.}
     \label{fig:Plot4}  
 \end{figure}
