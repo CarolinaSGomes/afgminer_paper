@@ -30,6 +30,10 @@ A.~Jocksch, J.~N. Amaral, and M.~Mitran, ``{M}ining for {P}aths in {F}low
 {IBM Corporation}, ``Web{S}phere {A}pplication {S}erver,''
   http://www-01.ibm.com/software/websphere/, March 2009.
 
+\bibitem{GomesMSc12}
+C.~S. Gomes, ``Heavyweight pattern mining in attributed flow graphs,'' Master's
+  thesis, University of Alberta, Edmonton, AB, Canada, 2012.
+
 \bibitem{Cordella}
 \BIBentryALTinterwordspacing
 L.~P.~Cordella, P.~Foggia, C.~Sansone, and M.~Vento, ``{A} {(Sub)}{G}raph
