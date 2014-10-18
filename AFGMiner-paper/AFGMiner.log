@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 OCT 2014 15:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  18 OCT 2014 08:14
 entering extended mode
- \write18 enabled.
- file:line:error style messages enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **AFGMiner.tex
 (./AFGMiner.tex
@@ -327,8 +326,7 @@ Underfull \hbox (badness 2875) in paragraph at lines 21--22
 []\OT1/ptm/m/n/10 Definition of the Attributed-Flow-Graph Min-ing
  []
 
-[1{/Users/josenelsonamaral/Library/texlive/2013/texmf-var/fonts/map/pdftex/updm
-ap/pdftex.map}
+[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
  <./figures/attributed_flow_graph_descpr.pdf> <./figures/attributed_flow_graph3
@@ -361,18 +359,18 @@ Package pdftex.def Info: figures/numPatternsComp.pdf used on input line 7.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4] <figures/plot2.pdf, id=111, 796.9775pt x 597.23125pt>
+[4] <figures/plot2.pdf, id=111, 549.62982pt x 270.29742pt>
 File: figures/plot2.pdf Graphic file (type pdf)
 
 <use figures/plot2.pdf>
 Package pdftex.def Info: figures/plot2.pdf used on input line 22.
-(pdftex.def)             Requested size: 199.24388pt x 149.30743pt.
- <figures/plot1.pdf, id=112, 512.73659pt x 331.28366pt>
+(pdftex.def)             Requested size: 219.84802pt x 108.11705pt.
+ <figures/plot1.pdf, id=112, 512.73686pt x 331.28375pt>
 File: figures/plot1.pdf Graphic file (type pdf)
 
 <use figures/plot1.pdf>
 Package pdftex.def Info: figures/plot1.pdf used on input line 29.
-(pdftex.def)             Requested size: 205.091pt x 132.51111pt.
+(pdftex.def)             Requested size: 205.09111pt x 132.51114pt.
 
 <figures/experimentC.pdf, id=113, 1027.84pt x 770.88pt>
 File: figures/experimentC.pdf Graphic file (type pdf)
@@ -395,8 +393,12 @@ Package pdftex.def Info: figures/experimentD.pdf used on input line 43.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (./text/Qualitative.tex [5 <./figures/numPatternsComp.pdf> <./figures/plot2.p
-df> <./figures/plot1.pdf> <./figures/experimentC.pdf> <./figures/experimentD.pd
-f>]) (./text/Related.tex) (./text/Conclusion.tex) (./AFGMiner.bbl
+df> <./figures/plot1.pdf
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./figures/plot1.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+> <./figures/experimentC.pdf> <./figures/experimentD.pdf>]) (./text/Related.tex
+) (./text/Conclusion.tex) (./AFGMiner.bbl
 Underfull \hbox (badness 3375) in paragraph at lines 30--32
 []\OT1/ptm/m/n/8 IBM Cor-po-ra-tion, ``Web-Sphere Ap-pli-ca-tion Server,'' http
 ://www-
@@ -448,10 +450,10 @@ al/texlive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive
 /2013/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2013/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on AFGMiner.pdf (6 pages, 440340 bytes).
+Output written on AFGMiner.pdf (6 pages, 470585 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 260 PDF objects out of 1000 (max. 8388607)
+ 178 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
